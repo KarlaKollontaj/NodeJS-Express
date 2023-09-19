@@ -13,10 +13,10 @@ const http = require('http');
 const servidor = http.createServer((req, res) => {
     console.log('===> res (respuesta)');
     //para ver el codigo de estado
-    //console.log(res.statusCode);
+    console.log(res.statusCode);
     //para cambiar el codigo de estado
-    //res.statusCode = 404;
-    //console.log(res.statusCode);
+    res.statusCode = 404;
+    console.log(res.statusCode);
     //para cambiar el header con info adicional
     res.setHeader('content-type', 'application/json');
     console.log(res.getHeaders());
