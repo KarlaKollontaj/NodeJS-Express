@@ -42,6 +42,14 @@ routerProgramacion.get('/:lenguaje/:nivel', (req, res) => {
     res.send(JSON.stringify(resultados));
 });
 
+//POST - queremos incluir un curso nuevo en programacion
+routerProgramacion.post('/', (req, res) => {
+    let cursoNuevo = req.body; //extraemos el body de la request que es el curso nuevo
+    programacion.push(cursoNuevo); //pushiamo in programacion el cursoNuevo
+    res.send(JSON.stringify(programacion)); //enviamos el file json de programacion
+
+});
+
 
 //exporto el modulo routerProgramacion
 module.exports = routerProgramacion;
