@@ -58,7 +58,7 @@ function manejarSolicitudPOST(req, res) {
     //si el camino es curso/programacion
     if (path === '/cursos/programacion') {
         //Curso es una variable vacia
-        let cursos = '';
+        let cuerpo = '';
         //metodo on para eventos: al recibir 'data' 
         //el contenido se convierte en string y va a colocarse en la variable cuerpo
         req.on('data', (contenido) => {
