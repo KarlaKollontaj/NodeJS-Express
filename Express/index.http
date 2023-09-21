@@ -30,3 +30,6 @@ Content-Type: application/json
     "titulo": "Python intermedio con proyectos",
     "vistas": 123996
 }
+
+###
+DELETE http://localhost:3000/api/cursos/programacion/1 HTTP/1.1

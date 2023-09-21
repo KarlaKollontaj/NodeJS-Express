@@ -66,6 +66,7 @@ routerProgramacion.put('/:id', (req, res) => {
     res.send(JSON.stringify(programacion));
 });
 
+//PATCH - modificamos solo algunas propriedades del curso
 routerProgramacion.patch('/:id', (req, res) => {
     const infoActualizada = req.body;//extraemos el body de la request que es la infoActualizada
     const id = req.params.id; //extraemos el id del curso
@@ -78,8 +79,28 @@ routerProgramacion.patch('/:id', (req, res) => {
         const cursoAModificar = programacion[indice];
         Object.assign(cursoAModificar, infoActualizada)
     }
+    //enviamos el json de programacion
     res.send(JSON.stringify(programacion));
 })
+
+//DELETE - eliminamos un curso
+routerProgramacion.delete('/:id', (req, res) => {
+    const id = req.params.id;//extraemos el id del curso
+    //en el arreglo de curso de programacion tratamos de encontrar el indice que corresponde a este curso a traves de su id 
+    const indice = programacion.findIndex(curso => curso.id == id)
+    //si el indice es valido usamos el metodo splice en programacion
+    if(indice >= 0) {
+        //splice nos permite cortar el arreglo programacion en un indice especifico (en este caso "indice")
+        //y eliminar uno o varios elementos a partir de este corte (en este caso "1" elemento)
+        programacion.splice(indice, 1);
+    }
+    //enviamos el json de programacion
+    res.send(JSON.stringify(programacion))
+
+})
+
+
+
 
 //exporto el modulo routerProgramacion
 module.exports = routerProgramacion;
